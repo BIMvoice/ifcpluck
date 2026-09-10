@@ -1,0 +1,28 @@
+{
+  "name": "ifcpluck",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pick elements from an IFC model and pluck them into a new, valid IFC file. Built on IFClite.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "smoke": "tsx scripts/smoke.ts"
+  },
+  "dependencies": {
+    "@ifc-lite/data": "^4.1.0",
+    "@ifc-lite/export": "^4.0.1",
+    "@ifc-lite/geometry": "^4.3.0",
+    "@ifc-lite/parser": "^5.2.0",
+    "@ifc-lite/query": "^2.2.0",
+    "@ifc-lite/renderer": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}

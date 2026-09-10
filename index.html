@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFCpluck</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍒</text></svg>"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <header class="brand">
+          <h1>IFC<span>pluck</span></h1>
+          <p>Pick elements. Get a new IFC.</p>
+        </header>
+
+        <input id="file-input" type="file" accept=".ifc" hidden />
+        <button id="open-btn" class="btn primary" disabled>Open IFC file</button>
+        <p id="status" class="status">Starting WebGPU…</p>
+
+        <section id="model-panel" class="panel grow" hidden>
+          <h2>Model</h2>
+          <p id="model-info" class="muted"></p>
+          <label class="field">
+            <span>Add all elements of a type</span>
+            <select id="type-select"></select>
+          </label>
+          <div id="tree" class="tree"></div>
+        </section>
+      </aside>
+
+      <main id="viewport" class="viewport">
+        <canvas id="canvas"></canvas>
+        <div class="drop-hint">Drop an .ifc file here</div>
+        <p class="hud">
+          Click: select · Ctrl/⌘-click: add or remove · Drag: orbit · Shift or right-drag: pan · Wheel: zoom · Esc: clear
+        </p>
+      </main>
+
+      <aside class="sidebar">
+        <section class="panel grow">
+          <h2>Selection <span id="sel-count" class="badge">0</span></h2>
+          <ul id="sel-list" class="sel-list"></ul>
+          <button id="clear-btn" class="btn ghost" disabled>Clear selection</button>
+        </section>
+
+        <section class="panel">
+          <h2>Bring along</h2>
+          <label class="check"><input type="checkbox" id="opt-properties" checked /> Property &amp; quantity sets</label>
+          <label class="check" title="A picked wall or slab brings its openings and the doors and windows in them. A picked door or window never brings its wall."><input type="checkbox" id="opt-hosted" checked /> Openings, doors &amp; windows in picked walls</label>
+          <label class="check"><input type="checkbox" id="opt-types" checked /> Type objects</label>
+          <label class="check"><input type="checkbox" id="opt-materials" checked /> Materials</label>
+          <label class="check"><input type="checkbox" id="opt-parts" checked /> Assemblies &amp; parts</label>
+          <p class="muted small">The site, building and storey each element sits in always come along.</p>
+        </section>
+
+        <label class="check"><input type="checkbox" id="opt-preview" /> Show only what will be plucked</label>
+        <button id="pluck-btn" class="btn primary big" disabled>Pluck to new IFC</button>
+        <p id="result" class="result" hidden></p>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
