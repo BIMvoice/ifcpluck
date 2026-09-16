@@ -52,6 +52,6 @@ The extraction itself lives in [`src/pluck.ts`](src/pluck.ts): `collectRelatedEn
 
 The dev and preview servers send `Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp`, which IFClite's WASM geometry needs. Configure the same headers wherever you deploy `dist/`.
 
-## Credits
+## Credits & licence
 
-Built on [IFClite](https://github.com/LTplus-AG/ifc-lite) by LTplus AG (MPL-2.0).
+Built on [IFClite](https://github.com/LTplus-AG/ifc-lite) by LTplus AG (MPL-2.0). IFCpluck itself is licensed under [MPL-2.0](LICENSE) as well.

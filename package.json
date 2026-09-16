@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Pick elements from an IFC model and pluck them into a new, valid IFC file. Built on IFClite.",
+  "license": "MPL-2.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
